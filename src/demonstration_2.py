@@ -26,5 +26,15 @@ Output: [1,0,0,0]
 Explanation: The input array represents the integer 999. 999 + 1 = 1000.
 """
 def plus_one(digits):
-    # Your code here
+    myStr = ""
+
+    for num in digits:
+        myStr += str(num)
+
+    myStr = str(int(myStr) + 1)
+    return list(myStr)
+
+print(plus_one([1, 3, 2]))
+print(plus_one([3, 2, 1, 9]))
+print(plus_one([9, 9, 9]))
 
