@@ -20,7 +20,7 @@ Output: -1
 Explanation:
 There is no index that satisfies the conditions in the problem statement.
 """
-def pivot_index(nums):
+def pivot_index_old(nums):
     # Your code here
     # Can easily be solved without a dictionary. That would require less space and might be a more efficient solution
     # sum1 = left over our index i. sum2 = right of our index i
@@ -42,5 +42,26 @@ def pivot_index(nums):
 
     return -1
 
-print(pivot_index([1,7,3,6,5,6]))
-print(pivot_index([1,2,3]))
+def pivot_index_new(nums):
+    sumLeft = 0
+    sumRight = sum(nums)
+
+    for i in range(0, len(nums)):
+        sumRight -= nums[i]
+
+        if sumLeft == sumRight:
+            return i
+        sumLeft += nums[i]
+
+    return -1
+
+print(pivot_index_old([1,7,3,6,5,6]))
+print(pivot_index_old([1,2,3]))
+print(pivot_index_old([11,0,0,11]))
+print(pivot_index_old([2,6,3,4,1,2,5,2,6]))
+
+print(pivot_index_new([1,7,3,6,5,6]))
+print(pivot_index_new([1,2,3]))
+print(pivot_index_new([11,0,0,11]))
+print(pivot_index_new([2,6,3,4,1,2,5,2,6]))
+
